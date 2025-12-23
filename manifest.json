@@ -1,0 +1,16 @@
+{
+  "name": "App",
+  "short_name": "App",
+  "start_url": "index.html",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f2f2f2",
+  "theme_color": "#f2f2f2",
+  "icons": [
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

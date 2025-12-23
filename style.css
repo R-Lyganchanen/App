@@ -1,0 +1,173 @@
+/* Полная блокировка скролла */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;            /* нет прокрутки */
+  overscroll-behavior: none;   /* отключить bounce в поддерживаемых браузерах */
+  touch-action: none;          /* блок жестикуляции прокрутки */
+}
+
+/* Используй фиксированный корневой контейнер */
+.app {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100dvh;              /* реальная высота экрана без «прыжков» */
+  background: #f2f2f2;         /* твой фон под островок */
+}
+
+/* Если есть внутренние блоки, явно запрети им скролл */
+.app * {
+  -webkit-overflow-scrolling: auto; /* отключить инерцию прокрутки у вложенных скролл-контейнеров */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+html, body {
+  margin: 0;
+   width: 100%;
+  height: 100%;
+   overflow-y: hidden; /* оставляем прокрутку */
+  -ms-overflow-style: none;  /* IE и Edge */
+  scrollbar-width: none;     /* Firefox */
+
+}
+
+body {
+  background: #f2f2f2;
+
+  /* Растягиваем фон ПОД островок */
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  padding-right: env(safe-area-inset-right);
+
+  font-family: system-ui, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Для WebKit (Safari, Chrome) */
+html::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  display: none;
+}
+/* Фотография */
+.corner-photo {
+  position: absolute;
+  top: 20px;       /* верхний край */
+  left: 15px;      /* левый край */
+  width: 40%;   /* ширина 40% экрана */
+  height: 30%;  /* высота 30% экрана */
+  object-fit: cover; /* картинка заполняет область */
+  border-radius: 8px; /* необязательно: скругление углов */
+}
+
+
+/* Полоса */
+.ticker {
+  position: absolute;
+  top: 40%;          /* 40% от верха экрана */
+  left: 0;
+  width: 100%;
+  height: 40px;
+  background: #000;  /* фон полосы */
+  color: #fff;
+  overflow: hidden;  /* скрываем лишнее */
+  display: flex;
+  align-items: center;
+}
+
+/* Дорожка с двумя копиями текста */
+.ticker__track {
+  display: flex;
+  width: 200%;              /* две копии подряд */
+  animation: scroll 20s linear infinite; /* скорость: 20 секунд */
+  will-change: transform;
+}
+
+/* Один сегмент кольца */
+.ticker__item {
+  flex: 0 0 100vw;          /* ширина сегмента = ширина экрана */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/* Анимация движения */
+@keyframes scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-100vw); }
+}
+/* Кнопки */
+.buttons {
+  position: absolute;
+  bottom: 10%;       /* отступ от низа */
+  left: 10%;         /* центрируем по ширине */
+  width: 80%;        /* ширина блока */
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons button {
+  flex: 1;
+  margin: 0 5px;
+  height: 45px;
+  font-size: 1rem;
+  font-family: system-ui, sans-serif;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  background: #333;
+  color: #fff;
+}
+/* СТраници 2 и 3 */
+/* Центрирование текста на страницах */
+.page-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-size: 2rem;
+  font-weight: bold;
+  font-family: system-ui, sans-serif;
+}
+/* СТраници 2 одложка*/
+.content-box {
+  position: absolute;
+  top: 20px;          /* отступ сверху */
+  left: 20px;         /* отступ слева */
+  right: 20px;        /* отступ справа */
+  bottom: 60%;        /* отступ от низа */
+  background: #fff;   /* белый фон */
+  border-radius: 16px; /* закруглённые углы */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* лёгкая тень для объёма */
+  padding: 1rem;      /* внутренние отступы */
+}
